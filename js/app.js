@@ -8,47 +8,86 @@ document.addEventListener('DOMContentLoaded', () => {
     setupOutsideClickToCloseSidebar();
 });
 
+// ── Category mapping ──────────────────────────────────────
+// Each document ID is assigned directly to a category name.
 const categoryMapping = {
-    "Human Rights":                           "Human Rights",
-    "Children's Rights":                      "Human Rights",
-    "Women's Rights":                         "Human Rights",
-    "Civil and Political Rights":             "Human Rights",
-    "Economic, Social and Cultural Rights":   "Human Rights",
-    "Prohibition of Torture":                 "Human Rights",
-    "Non-Discrimination":                     "Human Rights",
-    "Peoples' Rights":                        "Human Rights",
-    "International Humanitarian Law":         "International Humanitarian Law",
-    "International Criminal Law":             "International Criminal Law",
-    "Law of Treaties":                        "Law of Treaties",
-    "Diplomatic Law":                         "Diplomatic & Consular Law",
-    "Consular Law":                           "Diplomatic & Consular Law",
-    "Immunity":                               "Diplomatic & Consular Law",
-    "State Immunity":                         "Diplomatic & Consular Law",
-    "Law of the Sea":                         "Law of the Sea",
-    "Environment":                            "Environmental Law",
-    "Biodiversity":                           "Environmental Law",
-    "Climate Change":                         "Environmental Law",
-    "Natural Resources":                      "Environmental Law",
-    "Trade":                                  "International Economic Law",
-    "Investment Law":                         "International Economic Law",
-    "International Economic Law":             "International Economic Law",
-    "Sustainable Development":                "International Economic Law",
-    "Dispute Resolution":                     "International Dispute Resolution",
-    "International Courts":                   "International Dispute Resolution",
-    "State Responsibility":                   "State Responsibility & Sovereignty",
-    "Sovereignty":                            "State Responsibility & Sovereignty",
-    "Jurisdiction":                           "State Responsibility & Sovereignty",
-    "Responsibility":                         "State Responsibility & Sovereignty",
-    "Non-Intervention":                       "State Responsibility & Sovereignty",
-    "Foundations of International Law":       "Foundations & History",
-    "History":                                "Foundations & History",
-    "Regional Organization":                  "Regional Organizations",
-    "Migration":                              "Migration & Refugees"
+    // Core Human Rights
+    "udhr":                                   "Core Human Rights",
+    "iccpr":                                  "Core Human Rights",
+    "icescr":                                 "Core Human Rights",
+    "op-to-iccpr":                            "Core Human Rights",
+
+    // Specialised Human Rights
+    "cedaw":                                  "Specialised Human Rights",
+    "crc":                                    "Specialised Human Rights",
+    "crpd":                                   "Specialised Human Rights",
+    "cat":                                    "Specialised Human Rights",
+    "icerd":                                  "Specialised Human Rights",
+    "cmw":                                    "Specialised Human Rights",
+    "cped":                                   "Specialised Human Rights",
+
+    // Regional Human Rights
+    "echr":                                   "Regional Human Rights",
+    "achr":                                   "Regional Human Rights",
+    "african-charter":                        "Regional Human Rights",
+    "asean-hr":                               "Regional Human Rights",
+
+    // International Criminal Law
+    "rome-statute":                           "International Criminal Law",
+
+    // Refugee & Migration Law
+    "convention-relating-to-status-of-refugees": "Refugee & Migration Law",
+    "protocol-relating-to-status-of-refugee":    "Refugee & Migration Law",
+
+    // Diplomatic & Consular Law
+    "vcdr":                                   "Diplomatic & Consular Law",
+    "vccr":                                   "Diplomatic & Consular Law",
+    "convention-on-special-missions":         "Diplomatic & Consular Law",
+
+    // Law of Treaties & Sources
+    "vclt":                                   "Law of Treaties & Sources",
+    "icj-statute":                            "Law of Treaties & Sources",
+
+    // State Responsibility
+    "intl-wrongul-acts":                      "State Responsibility",
+    "resp-intl-orgn":                         "State Responsibility",
+    "jurisdictional-immunity":                "State Responsibility",
+
+    // International Economic Law
+    "marrakesh-agreement":                    "International Economic Law",
+    "icsid":                                  "International Economic Law",
+    "permanent-sovereignty-over-resources":   "International Economic Law",
+
+    // Environmental Law
+    "unfccc":                                 "Environmental Law",
+    "kyoto-protocol":                         "Environmental Law",
+    "cbd":                                    "Environmental Law",
+    "basel":                                  "Environmental Law",
+    "rio-decl":                               "Environmental Law",
+
+    // Regional Organisations
+    "charter-of-oas":                         "Regional Organisations",
 };
 
+// The order categories appear in the sidebar
+const categoryOrder = [
+    "Core Human Rights",
+    "Specialised Human Rights",
+    "Regional Human Rights",
+    "International Criminal Law",
+    "Refugee & Migration Law",
+    "Diplomatic & Consular Law",
+    "Law of Treaties & Sources",
+    "State Responsibility",
+    "International Economic Law",
+    "Environmental Law",
+    "Regional Organisations",
+];
+
+// Documents to show under "Frequently Cited"
 const popularIds = [
-    "udhr", "iccpr", "icescr", "genocide", "refugee",
-    "geneva", "vclt", "uncharter", "rome", "cat"
+    "udhr", "iccpr", "icescr", "vclt", "rome-statute",
+    "cat", "crc", "echr", "convention-relating-to-status-of-refugees", "icj-statute"
 ];
 
 async function loadCategoriesAndDocuments() {
@@ -76,22 +115,19 @@ function renderSidebar(categories, documents) {
         favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     } catch (e) { /* ignore */ }
 
-    // Group documents by mapped category
+    // Group documents by category using direct ID mapping
     const grouped = {};
+    categoryOrder.forEach(cat => { grouped[cat] = []; });
+
     documents.forEach(doc => {
-        let newCat = 'Other';
-        if (Array.isArray(doc.subject)) {
-            for (const subj of doc.subject) {
-                if (categoryMapping[subj]) { newCat = categoryMapping[subj]; break; }
-            }
-        }
-        if (!grouped[newCat]) grouped[newCat] = [];
-        grouped[newCat].push(doc);
+        const cat = categoryMapping[doc.id] || 'Other';
+        if (!grouped[cat]) grouped[cat] = [];
+        grouped[cat].push(doc);
     });
 
-    // Sort documents within each category by year descending
+    // Sort documents within each category alphabetically by title
     Object.keys(grouped).forEach(cat => {
-        grouped[cat].sort((a, b) => (b.year || 0) - (a.year || 0));
+        grouped[cat].sort((a, b) => a.title.localeCompare(b.title));
     });
 
     let html = '';
@@ -107,7 +143,9 @@ function renderSidebar(categories, documents) {
     }
 
     // Frequently Cited
-    const popularDocs = documents.filter(doc => popularIds.includes(doc.id));
+    const popularDocs = popularIds
+        .map(id => documents.find(d => d.id === id))
+        .filter(Boolean);
     if (popularDocs.length > 0) {
         html += '<div class="category"><h3>Frequently Cited</h3><ul class="document-list">';
         popularDocs.forEach(doc => {
@@ -116,11 +154,10 @@ function renderSidebar(categories, documents) {
         html += '</ul></div>';
     }
 
-    // Subject categories (alphabetically)
-    const sortedCategories = Object.keys(grouped).sort();
-    sortedCategories.forEach(catName => {
+    // Subject categories in defined order
+    categoryOrder.forEach(catName => {
         const docs = grouped[catName];
-        if (!docs.length) return;
+        if (!docs || !docs.length) return;
         html += `<div class="category"><h3>${catName}</h3><ul class="document-list">`;
         docs.forEach(doc => {
             html += `<li><a href="#/document/${doc.id}" class="doc-link">${doc.title}</a></li>`;
@@ -137,7 +174,6 @@ function refreshSidebar() {
     }
 }
 
-// Make refreshSidebar accessible from router.js
 window.refreshSidebar = refreshSidebar;
 
 function setupMobileMenu() {
@@ -149,7 +185,6 @@ function setupMobileMenu() {
         sidebar.classList.toggle('open');
     });
 
-    // Close sidebar when a document link is clicked (mobile)
     document.addEventListener('click', e => {
         if (e.target.closest('.doc-link') && window.innerWidth <= 768) {
             sidebar.classList.remove('open');
@@ -163,7 +198,7 @@ function setupOutsideClickToCloseSidebar() {
     if (!sidebar || !menuToggle) return;
 
     document.addEventListener('click', e => {
-        if (window.innerWidth > 768) return; // desktop: sidebar is always present
+        if (window.innerWidth > 768) return;
         if (
             sidebar.classList.contains('open') &&
             !sidebar.contains(e.target) &&
