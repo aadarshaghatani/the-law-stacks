@@ -1,6 +1,10 @@
 // js/router.js
 
 window.addEventListener('hashchange', handleRoute);
+window.addEventListener('hashchange', () => {
+    const input = document.getElementById('search-input');
+    if (input) input.value = '';
+});
 window.addEventListener('DOMContentLoaded', handleRoute);
 
 let currentDocId = null;
