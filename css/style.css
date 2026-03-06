@@ -748,3 +748,26 @@ h3 {
     border-radius: 3px;
     padding: 0 2px;
 }
+
+/* ── Full-page search results ───────────────────────────── */
+.search-page-results {
+    padding: 24px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.search-page-heading { font-size: 1.4rem; margin-bottom: 4px; }
+.search-page-count { font-size: 0.85rem; color: #888; margin-bottom: 24px; }
+.search-page-item {
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    border: 1px solid #e2e2e2;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #fff;
+    transition: background 0.15s, border-color 0.15s;
+}
+.search-page-item:hover { background: #f5f0eb; border-color: #c8b8a8; }
+.search-page-doc-title { font-size: 1rem; font-weight: 600; margin-bottom: 4px; }
+.search-page-article-label { font-size: 0.78rem; color: #888; margin-bottom: 6px; }
+.search-page-snippet { font-size: 0.85rem; color: #444; line-height: 1.6; }
+.search-page-snippet mark.highlight { background: #e0b3ff; border-radius: 3px; padding: 0 2px; }
