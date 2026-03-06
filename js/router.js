@@ -23,8 +23,8 @@ function showHome(content) {
     content.innerHTML = `
     <div class="welcome-message">
         <h2>Welcome to The Law Stack</h2>
-        <p>a small archive of international treaties, conventions, charters, and other documents.</p>
-        <p>browse documents from the sidebar, or use the search bar to find a specific article or topic.</p>
+        <p>an archive of documents related to international law.</p>
+        <p>browse documents from the sidebar or use the search bar.</p>
         <p class="small-note">✦ all documents are available offline after your first visit.</p>
     </div>
 `;
