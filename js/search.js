@@ -234,20 +234,38 @@
         const onInput = debounce(() => renderResults(inputEl.value), DEBOUNCE_MS);
         inputEl.addEventListener('input', onInput);
 
+        // Search button → show full results in main content
+        const searchBtn = document.getElementById('search-button');
+        if (searchBtn) {
+            searchBtn.addEventListener('click', () => {
+                const q = inputEl.value.trim();
+                if (q.length < MIN_QUERY_LEN) return;
+                hideResults();
+                renderFullResults(q);
+            });
+        }
+
+        // Pressing Enter in the search box also triggers full results
+        inputEl.addEventListener('keydown', e => {
+            if (e.key === 'Enter') {
+                const q = inputEl.value.trim();
+                if (q.length < MIN_QUERY_LEN) return;
+                hideResults();
+                renderFullResults(q);
+            }
+            if (e.key === 'Escape') { hideResults(); inputEl.blur(); }
+            if (e.key === 'ArrowDown') {
+                const first = resultsEl.querySelector('.result-item');
+                if (first) first.focus();
+            }
+        });
+
         inputEl.addEventListener('focus', () => {
             if (inputEl.value.trim().length >= MIN_QUERY_LEN) renderResults(inputEl.value);
         });
 
         document.addEventListener('click', e => {
             if (!inputEl.contains(e.target) && !resultsEl.contains(e.target)) hideResults();
-        });
-
-        inputEl.addEventListener('keydown', e => {
-            if (e.key === 'Escape') { hideResults(); inputEl.blur(); }
-            if (e.key === 'ArrowDown') {
-                const first = resultsEl.querySelector('.result-item');
-                if (first) first.focus();
-            }
         });
 
         resultsEl.addEventListener('keydown', e => {
@@ -260,6 +278,75 @@
             } else if (e.key === 'Escape') {
                 hideResults(); inputEl.focus();
             }
+        });
+    }
+        resultsEl.addEventListener('keydown', e => {
+            const items = Array.from(resultsEl.querySelectorAll('.result-item'));
+            const idx   = items.indexOf(document.activeElement);
+            if (e.key === 'ArrowDown' && idx < items.length - 1) {
+                items[idx + 1].focus();
+            } else if (e.key === 'ArrowUp') {
+                idx > 0 ? items[idx - 1].focus() : inputEl.focus();
+            } else if (e.key === 'Escape') {
+                hideResults(); inputEl.focus();
+            }
+        });
+    }
+
+     // ── Full-page search results (triggered by Search button or Enter) ─────────
+    function renderFullResults(rawQuery) {
+        const content = document.getElementById('content');
+        if (!content) return;
+
+        // Update the URL hash so the back button works naturally
+        window.location.hash = '/search/' + encodeURIComponent(rawQuery);
+
+        if (!indexReady) {
+            content.innerHTML = '<div class="welcome-message"><p>Search index is still loading, please try again in a moment.</p></div>';
+            return;
+        }
+
+        const hits = query(rawQuery);
+        const q    = rawQuery.trim().toLowerCase();
+
+        if (hits.length === 0) {
+            content.innerHTML = `
+                <div class="welcome-message">
+                    <h2>No results for "${rawQuery}"</h2>
+                    <p>Try different keywords or browse documents from the sidebar.</p>
+                </div>`;
+            return;
+        }
+
+        // Build the results page
+        let html = `<div class="search-page-results">
+            <h2 class="search-page-heading">Results for "<em>${rawQuery}</em>"</h2>
+            <p class="search-page-count">${hits.length} result${hits.length !== 1 ? 's' : ''} found</p>`;
+
+        for (const { entry } of hits) {
+            const rawSnippet  = extractSnippet(entry.text, entry._lower, q);
+            const highlighted = highlightText(rawSnippet, rawQuery);
+
+            const articleLabel = entry.articleNumber
+                ? `Article ${entry.articleNumber}${entry.articleHeading ? ': ' + entry.articleHeading : ''}`
+                : entry.articleHeading || '';
+
+            html += `
+                <div class="search-page-item" data-doc-id="${entry.docId}">
+                    <div class="search-page-doc-title">${entry.docTitle}</div>
+                    ${articleLabel ? `<div class="search-page-article-label">${articleLabel}</div>` : ''}
+                    <div class="search-page-snippet">${highlighted}</div>
+                </div>`;
+        }
+
+        html += '</div>';
+        content.innerHTML = html;
+
+        // Attach click handlers to each result card
+        content.querySelectorAll('.search-page-item').forEach(card => {
+            card.addEventListener('click', () => {
+                window.location.hash = '/document/' + encodeURIComponent(card.dataset.docId);
+            });
         });
     }
 
