@@ -1,9 +1,10 @@
 /**
  * js/search.js
  *
- * Real-time search for the International Law Library.
- * Builds an in-memory index from data/documents.json + data/articles/*.json,
- * then provides debounced, ranked, highlighted results in a dropdown.
+ * Real-time search for The Law Stack.
+ * - Typing in the search bar shows a dropdown of quick results
+ * - Clicking the Search button (or pressing Enter) shows full results in the main content area
+ * - Clicking any result opens that document
  */
 
 (() => {
@@ -40,11 +41,11 @@
     function extractSnippet(text, lowerText, lowerQuery) {
         const matchPos = lowerText.indexOf(lowerQuery);
         if (matchPos === -1) return text.slice(0, SNIPPET_RADIUS * 2);
-        const start   = Math.max(0, matchPos - SNIPPET_RADIUS);
-        const end     = Math.min(text.length, matchPos + lowerQuery.length + SNIPPET_RADIUS);
-        let snippet   = text.slice(start, end);
-        if (start > 0)          snippet = '…' + snippet;
-        if (end < text.length)  snippet = snippet + '…';
+        const start = Math.max(0, matchPos - SNIPPET_RADIUS);
+        const end   = Math.min(text.length, matchPos + lowerQuery.length + SNIPPET_RADIUS);
+        let snippet = text.slice(start, end);
+        if (start > 0)         snippet = '…' + snippet;
+        if (end < text.length) snippet = snippet + '…';
         return snippet;
     }
 
@@ -81,8 +82,8 @@
             for (const result of results) {
                 if (!result) continue;
                 const { doc, articleData } = result;
-                const docTitle = articleData.title  || doc.title || 'Untitled';
-                const docId    = doc.id;
+                const docTitle = articleData.title || doc.title || 'Untitled';
+                const docId    = doc.id; // Always use doc.id from documents.json
                 const content  = articleData.content || {};
 
                 if (content.preamble) {
@@ -123,8 +124,8 @@
         }
     }
 
-    // ── Query ─────────────────────────────────────────────────────────────────
-    function query(rawQuery) {
+    // ── Run a search query ────────────────────────────────────────────────────
+    function runQuery(rawQuery) {
         const q = rawQuery.trim().toLowerCase();
         if (q.length < MIN_QUERY_LEN) return [];
 
@@ -140,26 +141,26 @@
         return scored.slice(0, MAX_RESULTS);
     }
 
-    // ── Render results ────────────────────────────────────────────────────────
-    function renderResults(rawQuery) {
+    // ── DROPDOWN: quick results below the search bar ──────────────────────────
+    function renderDropdown(rawQuery) {
         resultsEl.innerHTML = '';
 
         if (!indexReady && !indexError) {
             resultsEl.innerHTML = '<div class="result-status">Loading search index…</div>';
-            showResults(); return;
+            showDropdown(); return;
         }
         if (indexError) {
             resultsEl.innerHTML = '<div class="result-status">Couldn\'t load search index. Please try again later.</div>';
-            showResults(); return;
+            showDropdown(); return;
         }
 
         const trimmed = rawQuery.trim();
-        if (trimmed.length < MIN_QUERY_LEN) { hideResults(); return; }
+        if (trimmed.length < MIN_QUERY_LEN) { hideDropdown(); return; }
 
-        const hits = query(trimmed);
+        const hits = runQuery(trimmed);
         if (hits.length === 0) {
             resultsEl.innerHTML = '<div class="result-status">No results found.</div>';
-            showResults(); return;
+            showDropdown(); return;
         }
 
         const fragment = document.createDocumentFragment();
@@ -180,9 +181,9 @@
             }
             if (labelParts.length) labelEl.textContent = labelParts.join(' · ');
 
-            const lowerQuery  = trimmed.toLowerCase();
-            const rawSnippet  = extractSnippet(entry.text, entry._lower, lowerQuery);
-            const snippetEl   = document.createElement('div');
+            const lowerQuery = trimmed.toLowerCase();
+            const rawSnippet = extractSnippet(entry.text, entry._lower, lowerQuery);
+            const snippetEl  = document.createElement('div');
             snippetEl.className = 'result-snippet';
             snippetEl.innerHTML = highlightText(rawSnippet, trimmed);
 
@@ -192,7 +193,7 @@
 
             item.addEventListener('click', () => {
                 window.location.hash = '/document/' + encodeURIComponent(entry.docId);
-                hideResults();
+                hideDropdown();
                 inputEl.value = '';
             });
 
@@ -206,127 +207,45 @@
         }
 
         resultsEl.appendChild(fragment);
-        showResults();
+        showDropdown();
     }
 
-    // ── Show / hide ───────────────────────────────────────────────────────────
-    function showResults() {
-        resultsEl.style.display = 'block';
-        resultsEl.setAttribute('aria-expanded', 'true');
-    }
-
-    function hideResults() {
-        resultsEl.style.display = 'none';
-        resultsEl.setAttribute('aria-expanded', 'false');
-    }
-
-    // ── Debounce ──────────────────────────────────────────────────────────────
-    function debounce(fn, delay) {
-        let timer;
-        return function (...args) {
-            clearTimeout(timer);
-            timer = setTimeout(() => fn.apply(this, args), delay);
-        };
-    }
-
-    // ── Wire up listeners ─────────────────────────────────────────────────────
-    function attachListeners() {
-        const onInput = debounce(() => renderResults(inputEl.value), DEBOUNCE_MS);
-        inputEl.addEventListener('input', onInput);
-
-        // Search button → show full results in main content
-        const searchBtn = document.getElementById('search-button');
-        if (searchBtn) {
-            searchBtn.addEventListener('click', () => {
-                const q = inputEl.value.trim();
-                if (q.length < MIN_QUERY_LEN) return;
-                hideResults();
-                renderFullResults(q);
-            });
-        }
-
-        // Pressing Enter in the search box also triggers full results
-        inputEl.addEventListener('keydown', e => {
-            if (e.key === 'Enter') {
-                const q = inputEl.value.trim();
-                if (q.length < MIN_QUERY_LEN) return;
-                hideResults();
-                renderFullResults(q);
-            }
-            if (e.key === 'Escape') { hideResults(); inputEl.blur(); }
-            if (e.key === 'ArrowDown') {
-                const first = resultsEl.querySelector('.result-item');
-                if (first) first.focus();
-            }
-        });
-
-        inputEl.addEventListener('focus', () => {
-            if (inputEl.value.trim().length >= MIN_QUERY_LEN) renderResults(inputEl.value);
-        });
-
-        document.addEventListener('click', e => {
-            if (!inputEl.contains(e.target) && !resultsEl.contains(e.target)) hideResults();
-        });
-
-        resultsEl.addEventListener('keydown', e => {
-            const items = Array.from(resultsEl.querySelectorAll('.result-item'));
-            const idx   = items.indexOf(document.activeElement);
-            if (e.key === 'ArrowDown' && idx < items.length - 1) {
-                items[idx + 1].focus();
-            } else if (e.key === 'ArrowUp') {
-                idx > 0 ? items[idx - 1].focus() : inputEl.focus();
-            } else if (e.key === 'Escape') {
-                hideResults(); inputEl.focus();
-            }
-        });
-    }
-        resultsEl.addEventListener('keydown', e => {
-            const items = Array.from(resultsEl.querySelectorAll('.result-item'));
-            const idx   = items.indexOf(document.activeElement);
-            if (e.key === 'ArrowDown' && idx < items.length - 1) {
-                items[idx + 1].focus();
-            } else if (e.key === 'ArrowUp') {
-                idx > 0 ? items[idx - 1].focus() : inputEl.focus();
-            } else if (e.key === 'Escape') {
-                hideResults(); inputEl.focus();
-            }
-        });
-    }
-
-     // ── Full-page search results (triggered by Search button or Enter) ─────────
+    // ── FULL PAGE: results inside the main content area ───────────────────────
     function renderFullResults(rawQuery) {
         const content = document.getElementById('content');
         if (!content) return;
 
-        // Update the URL hash so the back button works naturally
-        window.location.hash = '/search/' + encodeURIComponent(rawQuery);
+        hideDropdown();
 
         if (!indexReady) {
-            content.innerHTML = '<div class="welcome-message"><p>Search index is still loading, please try again in a moment.</p></div>';
-            return;
-        }
-
-        const hits = query(rawQuery);
-        const q    = rawQuery.trim().toLowerCase();
-
-        if (hits.length === 0) {
             content.innerHTML = `
                 <div class="welcome-message">
-                    <h2>No results for "${rawQuery}"</h2>
-                    <p>Try different keywords or browse documents from the sidebar.</p>
+                    <p>Search index is still loading, please try again in a moment.</p>
                 </div>`;
             return;
         }
 
-        // Build the results page
-        let html = `<div class="search-page-results">
-            <h2 class="search-page-heading">Results for "<em>${rawQuery}</em>"</h2>
-            <p class="search-page-count">${hits.length} result${hits.length !== 1 ? 's' : ''} found</p>`;
+        const trimmed = rawQuery.trim();
+        const hits    = runQuery(trimmed);
+        const q       = trimmed.toLowerCase();
+
+        if (hits.length === 0) {
+            content.innerHTML = `
+                <div class="welcome-message">
+                    <h2>No results for "${trimmed}"</h2>
+                    <p>Try different keywords or browse the documents from the sidebar.</p>
+                </div>`;
+            return;
+        }
+
+        let html = `
+            <div class="search-page-results">
+                <h2 class="search-page-heading">Results for "<em>${trimmed}</em>"</h2>
+                <p class="search-page-count">${hits.length} result${hits.length !== 1 ? 's' : ''} found</p>`;
 
         for (const { entry } of hits) {
             const rawSnippet  = extractSnippet(entry.text, entry._lower, q);
-            const highlighted = highlightText(rawSnippet, rawQuery);
-
+            const highlighted = highlightText(rawSnippet, trimmed);
             const articleLabel = entry.articleNumber
                 ? `Article ${entry.articleNumber}${entry.articleHeading ? ': ' + entry.articleHeading : ''}`
                 : entry.articleHeading || '';
@@ -342,11 +261,86 @@
         html += '</div>';
         content.innerHTML = html;
 
-        // Attach click handlers to each result card
+        // Each card opens its document when clicked
         content.querySelectorAll('.search-page-item').forEach(card => {
             card.addEventListener('click', () => {
                 window.location.hash = '/document/' + encodeURIComponent(card.dataset.docId);
             });
+        });
+    }
+
+    // ── Show / hide dropdown ──────────────────────────────────────────────────
+    function showDropdown() {
+        resultsEl.style.display = 'block';
+        resultsEl.setAttribute('aria-expanded', 'true');
+    }
+
+    function hideDropdown() {
+        resultsEl.style.display = 'none';
+        resultsEl.setAttribute('aria-expanded', 'false');
+    }
+
+    // ── Debounce ──────────────────────────────────────────────────────────────
+    function debounce(fn, delay) {
+        let timer;
+        return function (...args) {
+            clearTimeout(timer);
+            timer = setTimeout(() => fn.apply(this, args), delay);
+        };
+    }
+
+    // ── Wire up all event listeners ───────────────────────────────────────────
+    function attachListeners() {
+
+        // Typing → dropdown (debounced)
+        const onInput = debounce(() => renderDropdown(inputEl.value), DEBOUNCE_MS);
+        inputEl.addEventListener('input', onInput);
+
+        // Re-show dropdown when input is focused and already has text
+        inputEl.addEventListener('focus', () => {
+            if (inputEl.value.trim().length >= MIN_QUERY_LEN) renderDropdown(inputEl.value);
+        });
+
+        // Search button → full page results
+        const searchBtn = document.getElementById('search-button');
+        if (searchBtn) {
+            searchBtn.addEventListener('click', () => {
+                const q = inputEl.value.trim();
+                if (q.length < MIN_QUERY_LEN) return;
+                renderFullResults(q);
+            });
+        }
+
+        // Enter key → full page results
+        inputEl.addEventListener('keydown', e => {
+            if (e.key === 'Enter') {
+                const q = inputEl.value.trim();
+                if (q.length >= MIN_QUERY_LEN) renderFullResults(q);
+                return;
+            }
+            if (e.key === 'Escape') { hideDropdown(); inputEl.blur(); return; }
+            if (e.key === 'ArrowDown') {
+                const first = resultsEl.querySelector('.result-item');
+                if (first) first.focus();
+            }
+        });
+
+        // Clicking outside hides dropdown
+        document.addEventListener('click', e => {
+            if (!inputEl.contains(e.target) && !resultsEl.contains(e.target)) hideDropdown();
+        });
+
+        // Arrow key navigation inside dropdown
+        resultsEl.addEventListener('keydown', e => {
+            const items = Array.from(resultsEl.querySelectorAll('.result-item'));
+            const idx   = items.indexOf(document.activeElement);
+            if (e.key === 'ArrowDown' && idx < items.length - 1) {
+                items[idx + 1].focus();
+            } else if (e.key === 'ArrowUp') {
+                idx > 0 ? items[idx - 1].focus() : inputEl.focus();
+            } else if (e.key === 'Escape') {
+                hideDropdown(); inputEl.focus();
+            }
         });
     }
 
@@ -364,7 +358,7 @@
         inputEl.setAttribute('aria-autocomplete', 'list');
         inputEl.setAttribute('aria-controls', 'search-results');
         resultsEl.setAttribute('role', 'listbox');
-        hideResults();
+        hideDropdown();
 
         attachListeners();
         buildIndex();
