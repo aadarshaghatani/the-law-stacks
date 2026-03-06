@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Law Stack</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1E2A38">
+</head>
+<body>
+    <div class="app">
+
+        <header class="header">
+            <div class="header-container">
+                <div class="logo">
+                    <a href="#/" style="text-decoration:none;"><h1>The Law Stack</h1></a>
+                </div>
+                <div class="search-wrapper">
+                    <div class="search-container">
+                        <input type="text" id="search-input" placeholder="Search documents, articles…">
+                        <button id="search-button">Search</button>
+                    </div>
+                    <div id="search-results" class="search-results"></div>
+                </div>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">☰</button>
+            </div>
+        </header>
+
+        <div class="main-container">
+
+            <!-- Left sidebar -->
+            <aside class="sidebar" id="sidebar">
+                <div class="sidebar-inner">
+                    <nav class="sidebar-nav" id="sidebar-nav">
+                        <!-- populated by app.js -->
+                    </nav>
+                </div>
+            </aside>
+
+            <!-- Sidebar collapse/expand tab -->
+            <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <!-- Main content -->
+            <main class="content" id="content">
+                <div class="welcome-message">
+                    <h2>Welcome to the Law Stack</h2>
+                    <p>select a document from the sidebar to begin reading.</p>
+                    <p class="small-note">all documents are available offline after first visit.</p>
+                </div>
+            </main>
+
+        </div>
+
+    </div>
+
+    <!-- Bottom ribbon -->
+    <div class="bottom-ribbon">
+        <span>developed by aadarsha</span>
+    </div>
+
+    <!-- Right sidebar article navigation -->
+    <button
+        id="article-nav-toggle"
+        class="article-nav-toggle"
+        aria-label="Open article navigation"
+        aria-expanded="false"
+        aria-controls="article-nav-sidebar"
+    >
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+
+    <div id="article-nav-overlay" class="article-nav-overlay" aria-hidden="true"></div>
+
+    <nav
+        id="article-nav-sidebar"
+        class="article-nav-sidebar"
+        aria-label="Article navigation"
+        aria-hidden="true"
+    >
+        <div class="article-nav-header">
+            <span class="article-nav-title">Contents</span>
+            <button id="article-nav-close" class="article-nav-close" aria-label="Close">✕</button>
+        </div>
+        <div id="article-nav-list" class="article-nav-list" role="list">
+            <!-- populated by article-nav.js -->
+        </div>
+    </nav>
+
+    <script src="js/router.js"></script>
+    <script src="https://unpkg.com/lunr/lunr.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/article-nav.js"></script>
+
+    <!-- Left sidebar collapse logic -->
+    <script>
+        (function () {
+            const sidebar = document.getElementById('sidebar');
+            const toggle  = document.getElementById('sidebar-toggle');
+            if (!sidebar || !toggle) return;
+
+            toggle.addEventListener('click', () => {
+                const isCollapsed = sidebar.classList.toggle('collapsed');
+                toggle.classList.toggle('collapsed', isCollapsed);
+            });
+        })();
+    </script>
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./sw.js');
+    }
+    </script>
+</body>
+</html>

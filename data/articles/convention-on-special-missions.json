@@ -1,0 +1,158 @@
+{
+  "id": "special_missions_1969",
+  "title": "Convention on Special Missions",
+  "date": "1969-12-08",
+  "type": "diplomatic_law",
+  "source_file": "special_missions.txt",
+  "metadata": {
+    "place_signed": null,
+    "entry_into_force": "1985-06-21",
+    "parties": null
+  },
+  "content": {
+    "preamble": "1969\nAdopted by the General Assembly of the United Nations on 8 December 1969.\nEntered into force on 21 June 1985.\nUnited Nations, Treaty Series, vol. 1400, p. 231\nCopyright © United Nations\n2005\nConvention on Special Missions\nAdopted by the General Assembly of the United Nations\non 8 December 1969\nThe States Parties to the present Convention,\nRecalling that special treatment has always been accorded to special missions,\nHaving in mind the purposes and principles of the Charter of the United Nations concerning the\nsovereign equality of States, the maintenance of international peace and security and the development of\nfriendly relations and cooperation among States,\nRecalling that the importance of the question of special missions was recognized during the\nUnited Nations Conference on Diplomatic Intercourse and Immunities and in resolution I adopted by the\nConference on 10 April 1961,\nConsidering that the United Nations Conference on Diplomatic Intercourse and Immunities\nadopted the Vienna Convention on Diplomatic Relations, which was opened for signature on 18 April\n1961,\nConsidering that the United Nations Conference on Consular Relations adopted the Vienna\nConvention on Consular Relations, which was opened for signature on 24 April 1963,\nBelieving that an international convention on special missions would complement those two\nConventions and would contribute to the development of friendly relations among nations, whatever\ntheir constitutional and social systems,\nRealizing that the purpose of privileges and immunities relating to special missions is not to\nbenefit individuals but to ensure the efficient performance of the functions of special missions as\nmissions representing the State,\nAffirming that the rules of customary international law continue to govern questions not regulated\nby the provisions of the present Convention,\nHave agreed as follows:",
+    "articles": [
+      {
+        "number": "1",
+        "heading": "Use of terms",
+        "text": "For the purposes of the present Convention:\n\n(a) “special mission” is a temporary mission, representing the State, which is sent by one State to another State with the consent of the latter for the purpose of dealing with it on specific questions or of performing in relation to it a specific task;\n\n(b) “permanent diplomatic mission” is a diplomatic mission within the meaning of the Vienna Convention on Diplomatic Relations;\n\n(c) “consular post” is any consulate-general, consulate, vice-consulate or consular agency;\n\n(d) “head of a special mission” is the person charged by the sending State with the duty of acting in that capacity;\n\n(e) “representative of the sending State in the special mission” is any person on whom the sending State has conferred that capacity;\n\n(f) “members of a special mission” are the head of the special mission, the representatives of the sending State in the special mission and the members of the staff of the special mission;\n\n(g) “members of the staff of the special mission” are the members of the diplomatic staff, the administrative and technical staff and the service staff of the special mission;\n\n(h) “members of the diplomatic staff” are the members of the staff of the special mission who have diplomatic status for the purposes of the special mission;\n\n(i) “members of the administrative and technical staff” are the members of the staff of the special mission employed in the administrative and technical service of the special mission;\n\n(j) “members of the service staff” are the members of the staff of the special mission employed by it as household workers or for similar tasks;\n\n(k) “private staff” are persons employed exclusively in the private service of the members of the special mission."
+      },
+      {
+        "number": "2",
+        "heading": "Sending of a special mission",
+        "text": "A State may send a special mission to another State with the consent of the latter, previously obtained through the diplomatic or another agreed or mutually acceptable channel."
+      },
+      {
+        "number": "3",
+        "heading": "Functions of a special mission",
+        "text": "The functions of a special mission shall be determined by the mutual consent of the sending and the receiving State."
+      },
+      {
+        "number": "4",
+        "heading": "Sending of the same special mission to two or more States",
+        "text": "A State which wishes to send the same special mission to two or more States shall so inform each receiving State when seeking the consent of that State."
+      },
+      {
+        "number": "5",
+        "heading": "Sending of a joint special mission by two or more States",
+        "text": "Two or more States which wish to send a joint special mission to another State shall so inform the receiving State when seeking the consent of that State."
+      },
+      {
+        "number": "6",
+        "heading": "Sending of special missions by two or more States in order to deal with a question of common interest",
+        "text": "Two or more States may each send a special mission at the same time to another State, with the consent of that State obtained in accordance with article 2, in order to deal together, with the agreement of all of these States, with a question of common interest to all of them."
+      },
+      {
+        "number": "7",
+        "heading": "Non-existence of diplomatic or consular relations",
+        "text": "The existence of diplomatic or consular relations is not necessary for the sending or reception of a special mission."
+      },
+      {
+        "number": "8",
+        "heading": "Appointment of the members of the special mission",
+        "text": "Subject to the provisions of articles 10, 11 and 12, the sending State may freely appoint the members of the special mission after having given to the receiving State all necessary information concerning the size and composition of the special mission, and in particular the names and designations of the persons it intends to appoint. The receiving State may decline to accept a special mission of a size that is not considered by it to be reasonable, having regard to circumstances and conditions in the receiving State and to the needs of the particular mission. It may also, without giving reasons, decline to accept any person as a member of the special mission."
+      },
+      {
+        "number": "9",
+        "heading": "Composition of the special mission",
+        "text": "1. A special mission shall consist of one or more representatives of the sending State from among whom the sending State may appoint a head. It may also include diplomatic staff, administrative and technical staff and service staff.\n\n2. When members of a permanent diplomatic mission or of a consular post in the receiving State are included in a special mission, they shall retain their privileges and immunities as members of their permanent diplomatic mission or consular post in addition to the privileges and immunities accorded by the present Convention."
+      },
+      {
+        "number": "10",
+        "heading": "Nationality of the members of the special mission",
+        "text": "1. The representatives of the sending State in the special mission and the members of its diplomatic staff should in principle be of the nationality of the sending State.\n\n2. Nationals of the receiving State may not be appointed to a special mission except with the consent of that State, which may be withdrawn at any time.\n\n3. The receiving State may reserve the right provided for in paragraph 2 of this article with regard to nationals of a third State who are not also nationals of the sending State."
+      },
+      {
+        "number": "11",
+        "heading": "Notifications",
+        "text": "1. The Ministry of Foreign Affairs of the receiving State, or such other organ of that State as may be agreed, shall be notified of:\n\n(a) the composition of the special mission and any subsequent changes therein;\n(b) the arrival and final departure of members of the mission and the termination of their functions with the mission;\n(c) the arrival and final departure of any person accompanying a member of the mission;\n(d) the engagement and discharge of persons resident in the receiving State as members of the mission or as private staff;\n(e) the appointment of the head of the special mission or, if there is none, of the representative referred to in paragraph 1 of article 14, and of any substitute for them;\n(f) the location of the premises occupied by the special mission and of the private accommodation enjoying inviolability under articles 30, 36 and 39, as well as any other information that may be necessary to identify such premises and accommodation.\n\n2. Unless it is impossible, notification of arrival and final departure must be given in advance."
+      },
+      {
+        "number": "12",
+        "heading": "Persons declared “non grata” or not acceptable",
+        "text": "1. The receiving State may, at any time and without having to explain its decision, notify the sending State that any representative of the sending State in the special mission or any member of its diplomatic staff is persona non grata or that any other member of the staff of the mission is not acceptable. In any such case, the sending State shall, as appropriate, either recall the person concerned or terminate his functions with the mission. A person may be declared non grata or not acceptable before arriving in the territory of the receiving State.\n\n2. If the sending State refuses, or fails within a reasonable period, to carry out its obligations under paragraph 1 of this article, the receiving State may refuse to recognize the person concerned as a member of the special mission."
+      },
+      {
+        "number": "13",
+        "heading": "Commencement of the functions of a special mission",
+        "text": "1. The functions of a special mission shall commence as soon as the mission enters into official contact with the Ministry of Foreign Affairs or with such other organ of the receiving State as may be agreed.\n\n2. The commencement of the functions of a special mission shall not depend upon presentation of the mission by the permanent diplomatic mission of the sending State or upon the submission of letters of credence or full powers."
+      },
+      {
+        "number": "14",
+        "heading": "Authority to act on behalf of the special mission",
+        "text": "1. The head of the special mission or, if the sending State has not appointed a head, one of the representatives of the sending State designated by the latter is authorized to act on behalf of the special mission and to address communications to the receiving State. The receiving State shall address communications concerning the special mission to the head of the mission, or, if there is none, to the representative referred to above, either direct or through the permanent diplomatic mission.\n\n2. However, a member of the special mission may be authorized by the sending State, by the head of the special mission or, if there is none, by the representative referred to in paragraph 1 of this article, either to substitute for the head of the special mission or for the aforesaid representative or to perform particular acts on behalf of the mission."
+      },
+      {
+        "number": "15",
+        "heading": "Organ of the receiving State with which official business is conducted",
+        "text": "All official business with the receiving State entrusted to the special mission by the sending State shall be conducted with or through the Ministry of Foreign Affairs or with such other organ of the receiving State as may be agreed."
+      },
+      {
+        "number": "16",
+        "heading": "Rules concerning precedence",
+        "text": "1. Where two or more special missions meet in the territory of the receiving State or of a third State, precedence among the missions shall be determined, in the absence of a special agreement, according to the alphabetical order of the names of the States used by the protocol of the State in whose territory the missions are meeting.\n\n2. Precedence among two or more special missions which meet on a ceremonial or formal occasion shall be governed by the protocol in force in the receiving State.\n\n3. Precedence among the members of the same special mission shall be that which is notified to the receiving State or to the third State in whose territory two or more special missions are meeting."
+      },
+      {
+        "number": "17",
+        "heading": "Seat of the special mission",
+        "text": "1. A special mission shall have its seat in the locality agreed by the States concerned.\n\n2. In the absence of agreement, the special mission shall have its seat in the locality where the Ministry of Foreign Affairs of the receiving State is situated.\n\n3. If the special mission performs its functions in different localities, the States concerned may agree that it shall have more than one seat from among which they may choose one as the principal seat."
+      },
+      {
+        "number": "18",
+        "heading": "Meeting of special missions in the territory of a third State",
+        "text": "1. Special missions from two or more States may meet in the territory of a third State only after obtaining the express consent of that State, which retains the right to withdraw it.\n\n2. In giving its consent, the third State may lay down conditions which shall be observed by the sending States.\n\n3. The third State shall assume in respect of the sending States the rights and obligations of a receiving State to the extent that it indicates in giving its consent."
+      },
+      {
+        "number": "19",
+        "heading": "Right of the special mission to use the flag and emblem of the sending State",
+        "text": "1. A special mission shall have the right to use the flag and emblem of the sending State on the premises occupied by the mission, and on its means of transport when used on official business.\n\n2. In the exercise of the right accorded by this article, regard shall be had to the laws, regulations and usages of the receiving State."
+      },
+      {
+        "number": "20",
+        "heading": "End of the functions of a special mission",
+        "text": "1. The functions of a special mission shall come to an end, inter alia, upon:\n\n(a) the agreement of the States concerned;\n(b) the completion of the task of the special mission;\n(c) the expiry of the duration assigned for the special mission, unless it is expressly extended;\n(d) notification by the sending State that it is terminating or recalling the special mission;\n(e) notification by the receiving State that it considers the special mission terminated.\n\n2. The severance of diplomatic or consular relations between the sending State and the receiving State shall not of itself have the effect of terminating special missions existing at the time of such severance."
+      },
+      {
+        "number": "21",
+        "heading": "Status of the Head of State and persons of high rank",
+        "text": "1. The Head of the sending State, when he leads a special mission, shall enjoy in the receiving State or in a third State the facilities, privileges and immunities accorded by international law to Heads of State on an official visit.\n\n2. The Head of the Government, the Minister for Foreign Affairs and other persons of high rank, when they take part in a special mission of the sending State, shall enjoy in the receiving State or in a third State, in addition to what is granted by the present Convention, the facilities, privileges and immunities accorded by international law."
+      },
+      {
+        "number": "22",
+        "heading": "General facilities",
+        "text": "The receiving State shall accord to the special mission the facilities required for the performance of its functions, having regard to the nature and task of the special mission."
+      },
+      {
+        "number": "23",
+        "heading": "Premises and accommodation",
+        "text": "The receiving State shall assist the special mission, if it so requests, in procuring the necessary premises and obtaining suitable accommodation for its members."
+      },
+      {
+        "number": "24",
+        "heading": "Exemption of the premises of the special mission from taxation",
+        "text": "1. To the extent compatible with the nature and duration of the functions performed by the special mission, the sending State and the members of the special mission acting on behalf of the mission shall be exempt from all national, regional or municipal dues and taxes in respect of the premises occupied by the special mission, other than such as represent payment for specific services rendered.\n\n2. The exemption from taxation referred to in this article shall not apply to such dues and taxes payable under the law of the receiving State by persons contracting with the sending State or with a member of the special mission."
+      },
+      {
+        "number": "25",
+        "heading": "Inviolability of the premises",
+        "text": "1. The premises where the special mission is established in accordance with the present Convention shall be inviolable. The agents of the receiving State may not enter the said premises, except with the consent of the head of the special mission or, if appropriate, of the head of the permanent diplomatic mission of the sending State accredited to the receiving State. Such consent may be assumed in case of fire or other disaster that seriously endangers public safety, and only in the event that it has not been possible to obtain the express consent of the head of the special mission or, where appropriate, of the head of the permanent mission.\n\n2. The receiving State is under a special duty to take all appropriate steps to protect the premises of the special mission against any intrusion or damage and to prevent any disturbance of the peace of the mission or impairment of its dignity.\n\n3. The premises of the special mission, their furnishings, other property used in the operation of the special mission and its means of transport shall be immune from search, requisition, attachment or execution."
+      },
+      {
+        "number": "26",
+        "heading": "Inviolability of archives and documents",
+        "text": "The archives and documents of the special mission shall be inviolable at all times and wherever they may be. They should, when necessary, bear visible external marks of identification."
+      },
+      {
+        "number": "27",
+        "heading": "Freedom of movement",
+        "text": "Subject to its laws and regulations concerning zones entry into which is prohibited or regulated for reasons of national security, the receiving State shall ensure to all members of the special mission such freedom of movement and travel in its territory as is necessary for the performance of the functions of the special mission."
+      },
+      {
+        "number": "28",
+        "heading": "Freedom of communication",
+        "text": "1. The receiving State shall permit and protect free communication on the part of the special mission for all official purposes. In communicating with the Government of the sending State, its diplomatic missions, its consular posts and its other special missions or with sections of the same mission, wherever situated, the special mission may employ all appropriate means, including couriers and messages in code or cipher. However, the special mission may install and use a wireless transmitter only with the consent of the receiving State.\n\n2. The official correspondence of the special mission shall be inviolable. Official correspondence means all correspondence relating to the special mission and its functions.\n\n3. Where practicable, the special mission shall use the means of communication, including the bag and the courier, of the permanent diplomatic mission of the sending State.\n\n4. The bag of the special mission shall not be opened or detained.\n\n5. The packages constituting the bag of the special mission must bear visible external marks of their character and may contain only documents or articles intended for the official use of the special mission.\n\n6. The courier of the special mission, who shall be provided with an official document indicating his status and the number of packages constituting the bag, shall be protected by the receiving State in the performance of his functions. He shall enjoy personal inviolability and shall not be liable to any form of arrest or detention.\n\n7. The sending State or the special mission may designate couriers ad hoc of the special mission. In such cases the provisions of paragraph 6 of this article shall also apply, except that the immunities therein mentioned shall cease to apply when the courier ad hoc has delivered to the consignee the special mission’s bag in his charge.\n\n8. The bag of the special mission may be entrusted to the captain of a ship or of a commercial aircraft scheduled to land at an authorized port of entry. The captain shall be provided with an official document indicating the number of packages constituting the bag, but he shall not be considered to be a courier of the special mission. By arrangement with the appropriate authorities, the special mission may send one of its members to take possession of the bag directly and freely from the captain of the ship or of the aircraft."
+      }
+    ],
+    "annexes": []
+  }
+}

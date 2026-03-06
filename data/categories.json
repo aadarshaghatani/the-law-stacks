@@ -1,0 +1,142 @@
+[
+  {
+    "id": "biodiversity",
+    "name": "Biodiversity"
+  },
+  {
+    "id": "childrens-rights",
+    "name": "Children's Rights"
+  },
+  {
+    "id": "civil-and-political-rights",
+    "name": "Civil and Political Rights"
+  },
+  {
+    "id": "climate-change",
+    "name": "Climate Change"
+  },
+  {
+    "id": "consular-law",
+    "name": "Consular Law"
+  },
+  {
+    "id": "diplomatic-law",
+    "name": "Diplomatic Law"
+  },
+  {
+    "id": "dispute-resolution",
+    "name": "Dispute Resolution"
+  },
+  {
+    "id": "economic-law",
+    "name": "Economic Law"
+  },
+  {
+    "id": "economic-social-and-cultural-rights",
+    "name": "Economic, Social and Cultural Rights"
+  },
+  {
+    "id": "environment",
+    "name": "Environment"
+  },
+  {
+    "id": "foundations-of-international-law",
+    "name": "Foundations of International Law"
+  },
+  {
+    "id": "history",
+    "name": "History"
+  },
+  {
+    "id": "human-rights",
+    "name": "Human Rights"
+  },
+  {
+    "id": "immunity",
+    "name": "Immunity"
+  },
+  {
+    "id": "international-courts",
+    "name": "International Courts"
+  },
+  {
+    "id": "international-criminal-law",
+    "name": "International Criminal Law"
+  },
+  {
+    "id": "international-economic-law",
+    "name": "International Economic Law"
+  },
+  {
+    "id": "international-organizations",
+    "name": "International Organizations"
+  },
+  {
+    "id": "investment-law",
+    "name": "Investment Law"
+  },
+  {
+    "id": "jurisdiction",
+    "name": "Jurisdiction"
+  },
+  {
+    "id": "law-of-treaties",
+    "name": "Law of Treaties"
+  },
+  {
+    "id": "migration",
+    "name": "Migration"
+  },
+  {
+    "id": "natural-resources",
+    "name": "Natural Resources"
+  },
+  {
+    "id": "non-discrimination",
+    "name": "Non-Discrimination"
+  },
+  {
+    "id": "non-intervention",
+    "name": "Non-Intervention"
+  },
+  {
+    "id": "peoples-rights",
+    "name": "Peoples' Rights"
+  },
+  {
+    "id": "prohibition-of-torture",
+    "name": "Prohibition of Torture"
+  },
+  {
+    "id": "regional-organization",
+    "name": "Regional Organization"
+  },
+  {
+    "id": "responsibility",
+    "name": "Responsibility"
+  },
+  {
+    "id": "sovereignty",
+    "name": "Sovereignty"
+  },
+  {
+    "id": "state-immunity",
+    "name": "State Immunity"
+  },
+  {
+    "id": "state-responsibility",
+    "name": "State Responsibility"
+  },
+  {
+    "id": "sustainable-development",
+    "name": "Sustainable Development"
+  },
+  {
+    "id": "trade",
+    "name": "Trade"
+  },
+  {
+    "id": "womens-rights",
+    "name": "Women's Rights"
+  }
+]

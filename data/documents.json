@@ -1,0 +1,320 @@
+[
+  {
+    "id": "achr",
+    "title": "American Convention on Human Rights",
+    "year": 1969,
+    "subject": ["Human Rights"],
+    "type": "convention",
+    "region": "americas",
+    "filename": "achr.json"
+  },
+  {
+    "id": "african-charter",
+    "title": "African Charter on Human and Peoples' Rights (Banjul Charter)",
+    "year": 1981,
+    "subject": ["Human Rights", "Peoples' Rights"],
+    "type": "charter",
+    "region": "africa",
+    "filename": "african-charter.json"
+  },
+  {
+    "id": "asean-hr",
+    "title": "ASEAN Human Rights Declaration",
+    "year": 2012,
+    "subject": ["Human Rights"],
+    "type": "declaration",
+    "region": "asia",
+    "filename": "asean-hr.json"
+  },
+  {
+    "id": "basel",
+    "title": "Basel Convention on the Control of Transboundary Movements of Hazardous Wastes and Their Disposal",
+    "year": 1989,
+    "subject": ["Environment"],
+    "type": "convention",
+    "region": "global",
+    "filename": "basel.json"
+  },
+  {
+    "id": "cat",
+    "title": "Convention against Torture and Other Cruel, Inhuman or Degrading Treatment or Punishment",
+    "year": 1984,
+    "subject": ["Human Rights", "Prohibition of Torture"],
+    "type": "convention",
+    "region": "global",
+    "filename": "cat.json"
+  },
+  {
+    "id": "cbd",
+    "title": "Convention on Biological Diversity",
+    "year": 1992,
+    "subject": ["Environment", "Biodiversity"],
+    "type": "convention",
+    "region": "global",
+    "filename": "cbd.json"
+  },
+  {
+    "id": "cedaw",
+    "title": "Convention on the Elimination of All Forms of Discrimination against Women",
+    "year": 1979,
+    "subject": ["Human Rights", "Women's Rights", "Non-Discrimination"],
+    "type": "convention",
+    "region": "global",
+    "filename": "cedaw.json"
+  },
+  {
+    "id": "charter-of-oas",
+    "title": "Charter of the Organization of American States",
+    "year": 1948,
+    "subject": ["Regional Organization"],
+    "type": "charter",
+    "region": "americas",
+    "filename": "charter-of-oas.json"
+  },
+  {
+    "id": "cmw",
+    "title": "International Convention on the Protection of the Rights of All Migrant Workers and Members of Their Families",
+    "year": 1990,
+    "subject": ["Human Rights"],
+    "type": "convention",
+    "region": "global",
+    "filename": "cmw.json"
+  },
+  {
+    "id": "convention-on-special-missions",
+    "title": "Convention on Special Missions",
+    "year": 1969,
+    "subject": ["Diplomatic Law"],
+    "type": "convention",
+    "region": "global",
+    "filename": "convention-on-special-missions.json"
+  },
+  {
+    "id": "convention-relating-to-status-of-refugees",
+    "title": "Convention relating to the Status of Refugees",
+    "year": 1951,
+    "subject": ["Human Rights", "Migration"],
+    "type": "convention",
+    "region": "global",
+    "filename": "convention-relating-to-status-of-refugees.json"
+  },
+  {
+    "id": "cped",
+    "title": "International Convention for the Protection of All Persons from Enforced Disappearance",
+    "year": 2006,
+    "subject": ["Human Rights"],
+    "type": "convention",
+    "region": "global",
+    "filename": "cped.json"
+  },
+  {
+    "id": "crc",
+    "title": "Convention on the Rights of the Child",
+    "year": 1989,
+    "subject": ["Human Rights", "Children's Rights"],
+    "type": "convention",
+    "region": "global",
+    "filename": "crc.json"
+  },
+  {
+    "id": "crpd",
+    "title": "Convention on the Rights of Persons with Disabilities",
+    "year": 2006,
+    "subject": ["Human Rights"],
+    "type": "convention",
+    "region": "global",
+    "filename": "crpd.json"
+  },
+  {
+    "id": "echr",
+    "title": "European Convention on Human Rights",
+    "year": 1950,
+    "subject": ["Human Rights"],
+    "type": "convention",
+    "region": "europe",
+    "filename": "echr.json"
+  },
+
+  {
+    "id": "iccpr",
+    "title": "International Covenant on Civil and Political Rights",
+    "year": 1966,
+    "subject": ["Human Rights", "Civil and Political Rights"],
+    "type": "covenant",
+    "region": "global",
+    "filename": "iccpr.json"
+  },
+  {
+    "id": "icerd",
+    "title": "International Convention on the Elimination of All Forms of Racial Discrimination",
+    "year": 1965,
+    "subject": ["Human Rights", "Non-Discrimination"],
+    "type": "convention",
+    "region": "global",
+    "filename": "icerd.json"
+  },
+  {
+    "id": "icescr",
+    "title": "International Covenant on Economic, Social and Cultural Rights",
+    "year": 1966,
+    "subject": ["Human Rights", "Economic, Social and Cultural Rights"],
+    "type": "covenant",
+    "region": "global",
+    "filename": "icescr.json"
+  },
+  {
+    "id": "icj-statute",
+    "title": "Statute of the International Court of Justice",
+    "year": 1945,
+    "subject": ["Foundations of International Law", "Dispute Resolution"],
+    "type": "statute",
+    "region": "global",
+    "filename": "icj-statute.json"
+  },
+  {
+    "id": "icsid",
+    "title": "Convention on the Settlement of Investment Disputes between States and Nationals of Other States",
+    "year": 1965,
+    "subject": ["Investment Law", "Dispute Resolution"],
+    "type": "convention",
+    "region": "global",
+    "filename": "icsid.json"
+  },
+  {
+    "id": "intl-wrongul-acts",
+    "title": "ILC Draft Articles on Responsibility of States for Internationally Wrongful Acts",
+    "year": 2001,
+    "subject": ["State Responsibility"],
+    "type": "ilc-draft",
+    "region": "global",
+    "filename": "intl-wrongul-acts.json"
+  },
+  {
+    "id": "jurisdictional-immunity",
+    "title": "United Nations Convention on Jurisdictional Immunities of States and Their Property",
+    "year": 2004,
+    "subject": ["State Immunity", "Jurisdiction"],
+    "type": "convention",
+    "region": "global",
+    "filename": "jurisdictional-immunity.json"
+  },
+  {
+    "id": "kyoto-protocol",
+    "title": "Kyoto Protocol to the UNFCCC",
+    "year": 1997,
+    "subject": ["Environment", "Climate Change"],
+    "type": "protocol",
+    "region": "global",
+    "filename": "kyoto-protocol.json"
+  },
+  {
+    "id": "marrakesh-agreement",
+    "title": "Marrakesh Agreement Establishing the World Trade Organization",
+    "year": 1994,
+    "subject": ["Trade", "International Economic Law"],
+    "type": "agreement",
+    "region": "global",
+    "filename": "marrakesh-agreement.json"
+  },
+
+  {
+    "id": "op-to-iccpr",
+    "title": "Optional Protocol to the International Covenant on Civil and Political Rights",
+    "year": 1966,
+    "subject": ["Human Rights"],
+    "type": "protocol",
+    "region": "global",
+    "filename": "op-to-iccpr.json"
+  },
+  {
+    "id": "permanent-sovereignty-over-resources",
+    "title": "UNGA Res 1803 (XVII) - Permanent Sovereignty over Natural Resources",
+    "year": 1962,
+    "subject": ["Economic Law", "Natural Resources"],
+    "type": "resolution",
+    "region": "global",
+    "filename": "permanent-sovereignty-over-resources.json"
+  },
+  {
+    "id": "protocol-relating-to-status-of-refugee",
+    "title": "Protocol relating to the Status of Refugees",
+    "year": 1967,
+    "subject": ["Human Rights", "Migration"],
+    "type": "protocol",
+    "region": "global",
+    "filename": "protocol-relating-to-status-of-refugee.json"
+  },
+  {
+    "id": "resp-intl-orgn",
+    "title": "ILC Draft Articles on Responsibility of International Organizations",
+    "year": 2011,
+    "subject": ["International Organizations", "Responsibility"],
+    "type": "ilc-draft",
+    "region": "global",
+    "filename": "resp-intl-orgn.json"
+  },
+  {
+    "id": "rio-decl",
+    "title": "Rio Declaration on Environment and Development",
+    "year": 1992,
+    "subject": ["Environment", "Sustainable Development"],
+    "type": "declaration",
+    "region": "global",
+    "filename": "rio-decl.json"
+  },
+  {
+    "id": "rome-statute",
+    "title": "Rome Statute of the International Criminal Court",
+    "year": 1998,
+    "subject": ["International Criminal Law", "International Courts"],
+    "type": "statute",
+    "region": "global",
+    "filename": "rome-statute.json"
+  },
+  {
+    "id": "udhr",
+    "title": "Universal Declaration of Human Rights",
+    "year": 1948,
+    "subject": ["Human Rights"],
+    "type": "declaration",
+    "region": "global",
+    "filename": "udhr.json"
+  },
+  {
+    "id": "unfccc",
+    "title": "United Nations Framework Convention on Climate Change",
+    "year": 1992,
+    "subject": ["Environment", "Climate Change"],
+    "type": "framework-convention",
+    "region": "global",
+    "filename": "unfccc.json"
+  },
+  
+  {
+    "id": "vccr",
+    "title": "Vienna Convention on Consular Relations",
+    "year": 1963,
+    "subject": ["Consular Law", "Immunity"],
+    "type": "convention",
+    "region": "global",
+    "filename": "vccr.json"
+  },
+  {
+    "id": "vcdr",
+    "title": "Vienna Convention on Diplomatic Relations",
+    "year": 1961,
+    "subject": ["Diplomatic Law", "Immunity"],
+    "type": "convention",
+    "region": "global",
+    "filename": "vcdr.json"
+  },
+  {
+    "id": "vclt",
+    "title": "Vienna Convention on the Law of Treaties",
+    "year": 1969,
+    "subject": ["Foundations of International Law", "Law of Treaties"],
+    "type": "convention",
+    "region": "global",
+    "filename": "vclt.json"
+  }
+]
