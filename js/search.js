@@ -82,7 +82,7 @@
                 if (!result) continue;
                 const { doc, articleData } = result;
                 const docTitle = articleData.title  || doc.title || 'Untitled';
-                const docId    = articleData.id      || doc.id;
+                const docId    = doc.id;
                 const content  = articleData.content || {};
 
                 if (content.preamble) {
