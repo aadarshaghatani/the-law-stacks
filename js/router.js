@@ -21,12 +21,13 @@ function handleRoute() {
 
 function showHome(content) {
     content.innerHTML = `
-        <div class="welcome-message">
-            <h2>Welcome to the International Law Library</h2>
-            <p>Select a document from the sidebar to begin reading.</p>
-            <p class="small-note">All documents are available offline after first visit.</p>
-        </div>
-    `;
+    <div class="welcome-message">
+        <h2>Welcome to The Law Stack</h2>
+        <p>a small archive of international treaties, conventions, charters, and other documents.</p>
+        <p>browse documents from the sidebar, or use the search bar to find a specific article or topic.</p>
+        <p class="small-note">✦ all documents are available offline after your first visit.</p>
+    </div>
+`;
     if (window.ArticleNav) window.ArticleNav.setError('Open a document to see its table of contents.');
 }
 
