@@ -191,7 +191,7 @@
             item.appendChild(snippetEl);
 
             item.addEventListener('click', () => {
-                window.location.hash = '#/document/' + encodeURIComponent(entry.docId);
+                window.location.hash = '/document/' + encodeURIComponent(entry.docId);
                 hideResults();
                 inputEl.value = '';
             });
