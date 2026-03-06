@@ -1,0 +1,21 @@
+{
+  "name": "International Law Library",
+  "short_name": "Law Library",
+  "description": "Offline international law documents library",
+  "start_url": "/the-law-stacks/index.html",
+  "display": "standalone",
+  "background_color": "#1E2A38",
+  "theme_color": "#1E2A38",
+  "icons": [
+    {
+      "src": "/the-law-stacks/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/the-law-stacks/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
